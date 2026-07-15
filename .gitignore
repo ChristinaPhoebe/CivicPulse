@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode
+.idea
+.DS_Store
+*.suo
+*.sw?
