@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import type { Issue } from '../data/issues';
 import IssueCard from '../components/IssueCard';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://civicpulse-i4n5.onrender.com/api';
 
 const statusColors: Record<string, string> = {
   Reported: '#d97706',

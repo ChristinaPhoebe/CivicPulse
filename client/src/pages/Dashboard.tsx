@@ -3,7 +3,7 @@ import { categories } from '../data/issues';
 import type { Issue } from '../data/issues';
 import IssueCard from '../components/IssueCard';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://civicpulse-i4n5.onrender.com/api';
 
 type SortOption = 'votes' | 'newest';
 type StatusFilter = 'all' | 'Reported' | 'In Progress' | 'Resolved';
