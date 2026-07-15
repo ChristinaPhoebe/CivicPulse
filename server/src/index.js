@@ -10,6 +10,13 @@ import User from './models/User.js';
 
 dotenv.config();
 
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled Rejection:', reason);
+});
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+});
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -88,10 +95,19 @@ const seedAdmin = async () => {
 };
 
 connectDB().then(async () => {
-  await seedAdmin();
-  await seedIssues();
+  try {
+    await seedAdmin();
+  } catch (err) {
+    console.error('seedAdmin failed:', err);
+  }
+  try {
+    await seedIssues();
+  } catch (err) {
+    console.error('seedIssues failed:', err);
+  }
+  console.log('About to call app.listen on port', PORT);
   app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log('Server running on port', PORT);
   });
 }).catch(err => {
   console.error('Failed to connect to MongoDB:', err);
